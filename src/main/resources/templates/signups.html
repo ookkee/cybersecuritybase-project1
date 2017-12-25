@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Super Secret Page</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <p>I sure hope no-one finds this page by brute force...</p>
+        <ul>
+            <li th:each="signup : ${signups}">
+                <ul>
+                    <li th:text="${signup.name}"></li>
+                    <li th:text="${signup.address}"></li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>

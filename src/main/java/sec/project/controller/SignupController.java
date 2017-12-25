@@ -2,6 +2,7 @@ package sec.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +29,12 @@ public class SignupController {
     public String submitForm(@RequestParam String name, @RequestParam String address) {
         signupRepository.save(new Signup(name, address));
         return "done";
+    }
+    
+    @RequestMapping(value = "/supersecreturl", method = RequestMethod.GET)
+    public String listSignups(Model model) {
+        model.addAttribute("signups", signupRepository.findAll());
+        return "signups";
     }
 
 }

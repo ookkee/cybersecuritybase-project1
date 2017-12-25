@@ -3,6 +3,7 @@ package sec.project.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -20,7 +21,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // no real security at the moment
+        // We are specifically defining a URL to be allowed access by anyone,
+        // but IRL it is more likely that we would need to define multiple types
+        // of accesses to multiple URLs and make a mistake.
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/supersecreturl").permitAll();
         http.authorizeRequests()
                 .anyRequest().authenticated().and().formLogin().permitAll();
         
