@@ -22,7 +22,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // no real security at the moment
         http.authorizeRequests()
-                .anyRequest().permitAll();
+                .anyRequest().authenticated().and().formLogin().permitAll();
         
         // Disable CSRF token - hopefully no-one does this without good reason...
         http.csrf().disable();
