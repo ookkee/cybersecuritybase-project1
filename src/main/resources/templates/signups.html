@@ -8,10 +8,10 @@
         <p>I sure hope no-one finds this page by brute force...</p>
         <ul>
             <li th:each="signup : ${signups}">
-                <ul>
-                    <li th:text="${signup.name}"></li>
-                    <li th:text="${signup.address}"></li>
-                </ul>
+                <label for="name">Name: </label><div th:text="${signup.name}" id="name"></div><br />
+                <label for="address">Address: </label><div th:text="${signup.address}" id="address"></div><br />
+                <!-- comments support HTML tags -->
+                <label for="comment">Comment: </label><br /><div th:utext="${signup.comment}" id="comment"></div>
             </li>
         </ul>
     </body>
