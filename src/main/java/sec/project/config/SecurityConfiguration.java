@@ -27,6 +27,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/supersecreturl").permitAll();
         http.authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/").permitAll();
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/").permitAll();
+        http.authorizeRequests()
                 .anyRequest().authenticated().and().formLogin().permitAll();
         
         // Disable CSRF token - hopefully no-one does this without good reason...

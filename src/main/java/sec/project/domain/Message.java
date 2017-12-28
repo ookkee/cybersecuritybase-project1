@@ -4,35 +4,35 @@ import javax.persistence.Entity;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
-public class Signup extends AbstractPersistable<Long> {
-
+public class Message extends AbstractPersistable<Long> {
+    
     private String name;
-    private String address;
-
-    public Signup() {
+    private String msg;
+    
+    public Message() {
         super();
     }
-
-    public Signup(String name, String address) {
+    
+    public Message(String name, String msg) {
         this();
         this.name = name;
-        this.address = address;
+        this.msg = msg;
     }
-
+    
     public String getName() {
         return name;
     }
-
+    
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getAddress() {
-        return address;
+    
+    public String getMsg() {
+        return msg;
     }
-
-    public void setAddress(String address) {
-        this.address = address;
+    
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
-
+    
 }

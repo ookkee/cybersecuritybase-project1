@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Message board</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <h2>Hi! Welcome to the message board!</h2>
+        <a href="#" th:href="@{/login}">Login</a><br/>
+        <br/>
+        <p th:each="comment : ${comments}">
+            <span th:text="${comment.name}">name: </span>: <span th:utext="${comment.msg}"></span>
+        </p>
+        <p>Add your own message. Maybe if you ask nicely, our administrator Ted 
+            will sign you up for our super exclusive event! Good luck!</p>
+        <form action="#" th:action="@{/}" method="POST">
+            <label for="name">Name: </label><input type="text" name="name" id="name" /><br />
+            <textarea cols="40" rows="4" name="msg">Supports HTML tags!</textarea><br />
+            <input type="submit" value="Submit" />
+        </form>
+    </body>
+</html>

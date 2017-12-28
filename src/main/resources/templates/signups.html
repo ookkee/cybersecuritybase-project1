@@ -10,8 +10,6 @@
             <li th:each="signup : ${signups}">
                 <label for="name">Name: </label><div th:text="${signup.name}" id="name"></div><br />
                 <label for="address">Address: </label><div th:text="${signup.address}" id="address"></div><br />
-                <!-- comments support HTML tags -->
-                <label for="comment">Comment: </label><br /><div th:utext="${signup.comment}" id="comment"></div>
             </li>
         </ul>
     </body>

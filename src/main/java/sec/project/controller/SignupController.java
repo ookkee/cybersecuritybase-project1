@@ -15,19 +15,14 @@ public class SignupController {
     @Autowired
     private SignupRepository signupRepository;
 
-    @RequestMapping("*")
-    public String defaultMapping() {
-        return "redirect:/form";
-    }
-
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String loadForm() {
         return "form";
     }
 
     @RequestMapping(value = "/form", method = RequestMethod.POST)
-    public String submitForm(@RequestParam String name, @RequestParam String address, @RequestParam String comment) {
-        signupRepository.save(new Signup(name, address, comment));
+    public String submitForm(@RequestParam String name, @RequestParam String address) {
+        signupRepository.save(new Signup(name, address));
         return "done";
     }
     
