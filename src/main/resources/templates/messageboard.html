@@ -8,6 +8,7 @@
     <body>
         <h2>Hi! Welcome to the message board!</h2>
         <a href="#" th:href="@{/login}">Login</a><br/>
+        <a href="#" th:href="@{/form}">Form</a><br/>
         <br/>
         <p th:each="comment : ${comments}">
             <span th:text="${comment.name}">name: </span>: <span th:utext="${comment.msg}"></span>
